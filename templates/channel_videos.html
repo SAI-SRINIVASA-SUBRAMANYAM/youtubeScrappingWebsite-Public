@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+{% block content %}
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">Thumbnail</th>
+        <th scope="col">Title</th>
+        <th scope="col">Views</th>
+        <th scope="col">Published on</th>
+        <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for video in channel_videos %}
+    <tr>
+        <td>
+            <img src="{{ video.thumbnail_url }}"
+                 class="rounded float-left img-thumbnail"
+                 alt="{{ video.video_title }}"
+                 height="150"
+                 width="150"/>
+        </td>
+        <td>{{ video.video_title }}</td>
+        <td>{{ video.views_count }}</td>
+        <td>{{ video.published_time }}</td>
+        <td>
+            <div class="container">
+                <div class="row">
+                    <div class="col col-lg-3">
+                        <a data-toggle="tooltip"
+                           data-placement="bottom"
+                           class="h3 bi bi-download"
+                           href="/channel/video/download?video_id={{video.video_id}}"
+                           title='Download "{{ video.video_title }}"'></a>
+                    </div>
+                    <div class="col col-lg-3">
+                        <a data-toggle="tooltip"
+                           data-placement="bottom"
+                           onclick="upload2S3('{{video.video_id}}')"
+                           class="h3 bi bi-cloud-arrow-up-fill"
+                           title='Upload to AWS - S3'></a>
+                    </div>
+                    <div class="col col-lg-3">
+                        <a data-toggle="tooltip"
+                           data-placement="bottom"
+                           onclick="get_video_status('{{video.video_id}}')"
+                           href="/channel/video/comments?video_id={{video.video_id}}"
+                           class="h3 bi bi-chat-square-text"
+                           title='Show comments...'></a>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

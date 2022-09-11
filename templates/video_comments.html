@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="card-body">
+    <p class="card-text">
+        The video <span class="badge badge-pill badge-info">{{video_title}}</span> has <span
+            class="badge badge-pill badge-light"> {{stats.get('likes_count')}} </span> likes, <span
+            class="badge badge-pill badge-light"> {{stats.get('comments_count')}} </span>
+        comments and comments were turned <span
+            class="badge badge-pill badge-{{'danger' if stats.get('comments_turned_off') else 'success'}}">
+        {{"OFF" if stats.get('comments_turned_off') else "ON" }}</span>.
+        <a id="get_channel_videos"
+           href="{{ 'https://www.youtube.com/watch?v='+video_id }}"
+           class="btn btn-link float-right"
+           target="_blank"
+           data-toggle="tooltip"
+           data-placement="bottom"
+           title="{{ 'https://www.youtube.com/watch?v='+video_id }}">
+            Watch video
+        </a>
+    </p>
+</div>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">Comment</th>
+        <th scope="col">Author</th>
+        <th scope="col">Image</th>
+        <th scope="col">Published on</th>
+        <th scope="col">Updated On</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for comment in comments %}
+    <tr>
+
+        <td>{{ comment.comment_text|safe }}</td>
+        <td>{{ comment.author_name }}</td>
+        <td>
+            <img src="{{ comment.author_thumbnail }}"
+                 class="rounded float-left img-thumbnail"
+                 height="75"
+                 width="75"/>
+        </td>
+        <td>{{ comment.published_at }}</td>
+        <td>{{ comment.updated_at }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">
+        {{exception_type}} <i class="bi bi-bug-fill float-right"></i>
+    </h1>
+    <p class="lead">{{exception_title}}</p>
+    <hr class="my-4">
+    <p>{{exception_message}}</p>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" href="/" role="button">
+            <i class="bi bi-house-door-fill"></i> Take Me Home
+        </a>
+    </p>
+</div>
+{% endblock %}

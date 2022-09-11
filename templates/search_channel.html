@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% block content %}
+<form action="/channel" method="POST">
+    <div class="form-group">
+        <label class="h1" for="searchString">Search for channel</label>
+        <input type="search"
+               class="form-control"
+               id="searchString"
+               name="searchString"
+               placeholder="Enter the name of channel..."
+               aria-label="Enter the name of channel..."
+               aria-describedby="searchHelp"
+               autofocus
+               required>
+        <small id="searchHelp" class="form-text text-muted">
+            This search will be performed by YouTube search engine.
+        </small>
+    </div>
+    <button class="btn btn-primary" type="submit">Search</button>
+</form>
+{% endblock %}

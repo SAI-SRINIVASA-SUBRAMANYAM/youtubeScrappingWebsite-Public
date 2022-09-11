@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="card container">
+    <div class="card-header row">
+        <div class="col">
+            <div class="h1">{{ channel_info.get('channel_title') }}</div>
+        </div>
+        <div class="col col-lg-2">
+            <img src="{{ 'https:'+channel_info.get('channel_thumbnail') }}"
+                 alt="{{ channel_info.get('channel_title') }}"
+                 height="150"
+                 width="150"
+                 class="rounded float-right"/>
+        </div>
+    </div>
+    <div class="card-body">
+        <p class="card-text">
+            This channel has subscribers of {{ channel_info.get('channel_subs') }} and uploaded {{
+            channel_info.get('channel_videos_count') }} videos.
+        </p>
+        <a href="{{ 'https://www.youtube.com'+channel_info.get('channel_url') }}"
+           class="btn btn-link"
+           target="_blank"
+           data-toggle="tooltip"
+           data-placement="bottom"
+           title="{{ 'https://www.youtube.com'+channel_info.get('channel_url') }}">
+            Visit channel
+        </a>
+        <a id="get_channel_videos"
+           href='/channel/videos'
+           class="btn btn-primary float-right">
+            Get videos
+        </a>
+    </div>
+</div>
+{% endblock %}
