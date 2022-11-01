@@ -26,7 +26,7 @@ This project provides an overview of how to implement Webscrapping using python.
   <li>requirements.txt is the application package related information file</li>
 </ul>
 
-<h2>Libraries used<h2>
+<h2>Libraries used</h2>
 <ul>
 <li>requests==2.27.1</li>
 <li>beautifulsoup4==4.11.1</li>
