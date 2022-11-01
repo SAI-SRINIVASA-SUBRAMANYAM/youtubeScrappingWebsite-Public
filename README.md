@@ -25,3 +25,21 @@ This project provides an overview of how to implement Webscrapping using python.
   <li>generate_secrets.py is the secrets generation file</li>
   <li>requirements.txt is the application package related information file</li>
 </ul>
+
+<h2>Libraries used<h2>
+<ul>
+<li>requests==2.27.1</li>
+<li>beautifulsoup4==4.11.1</li>
+<li>requests</li>
+<li>mysql-connector-python</li>
+<li>flask</li>
+<li>requests_html</li>
+<li>pytube</li>
+<li>pybase64</li>
+<li>boto3</li>
+<li>cryptography</li>
+<li>pymongo</li>
+<li>pymongo[srv]</li>
+<li>snowflake-connector-python</li>
+<li>gunicorn==20.0.4</li>
+</ul>
